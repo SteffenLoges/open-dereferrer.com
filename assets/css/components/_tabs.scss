@@ -1,0 +1,60 @@
+$tabs-content-background-color: rgb(35, 36, 31);
+$tabs-border-color: $gray-700;
+
+.tabs {
+  border: 1px solid $tabs-border-color;
+  border-radius: $border-radius;
+
+  > label {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 0;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 15%;
+      right: 15%;
+      height: 0;
+      background-color: $blue-300;
+      transition: height 0.2s ease-in-out;
+      will-change: height;
+    }
+  }
+
+  .tab-content > section {
+    display: none;
+  }
+
+  > input[type="radio"] {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}):checked + label {
+        color: $blue-300;
+
+        &:after {
+          height: 2px;
+        }
+      }
+
+      &:nth-of-type(#{$i}):checked ~ .tab-content > section:nth-child(#{$i}) {
+        display: block;
+      }
+    }
+  }
+
+  .tab-content {
+    background-color: $tabs-content-background-color;
+    border-top: 1px solid $tabs-border-color;
+    padding: 5px 10px;
+  }
+}

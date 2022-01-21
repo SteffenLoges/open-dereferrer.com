@@ -1,0 +1,25 @@
+footer {
+  background-color: darken($gray-900, 10%) !important;
+  color: #fff;
+
+  &,
+  .btn,
+  a {
+    font-size: 0.9rem;
+  }
+
+  a,
+  .btn {
+    text-decoration: none;
+    color: #aaa;
+  }
+
+  .links a {
+    margin-right: 1rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  padding: 0.5rem;
+}

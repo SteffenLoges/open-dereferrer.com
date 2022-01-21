@@ -1,0 +1,86 @@
+@import "components/roboto";
+@import "MaterialDesign/scss/materialdesignicons";
+@import "bootstrap/bootstrap";
+@import "components/hero/hero";
+@import "components/modal";
+@import "components/tabs";
+@import "components/footer";
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
+}
+
+.input-group .copy-btn {
+  position: relative;
+  overflow: hidden;
+  border-width: 0;
+
+  &::before {
+    @extend .#{$mdi-css-prefix}:before;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($green-400, 0.9);
+    backdrop-filter: blur(2px);
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    font-size: 1.6rem;
+    color: $gray-200;
+    content: "\F05E1";
+    opacity: 0;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    transition-property: opacity, left;
+    will-change: transform, opacity;
+  }
+
+  &.copied {
+    pointer-events: none;
+
+    &::before {
+      left: 0;
+      opacity: 1;
+    }
+  }
+}
+
+.alert-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin: 0;
+}
+
+.alert-dark {
+  background-color: desaturate(darken(#6699cc, 20%), 40%);
+  border: none;
+  color: $gray-200;
+}
+
+#documentation {
+  background-color: $blue-900;
+}
+
+.redirect {
+  .card-footer {
+    font-size: 0.8rem;
+    color: $gray-600;
+
+    a {
+      color: $gray-700;
+    }
+  }
+}

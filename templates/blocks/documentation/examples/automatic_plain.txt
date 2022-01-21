@@ -1,0 +1,10 @@
+<script defer src="https://api.open-dereferrer.com/v1/min"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    OpenDereferrer.init({
+      ignoreHosts: ['google.com', 'www.google.com'], // optional, enter a list of hostnames that should be ignored. default: []
+      noSplash: false, // optional, set to true to enable instant redirections without a splash screen. default: false
+      encodeURL: false, // optional, base64 encodes the URL and makes it unreadable to the blind eye. default: false
+    });
+  });
+</script>

@@ -1,0 +1,16 @@
+// @param string $url. The URL to anonymize.
+// @param bool $encode. Base64 encodes the URL and makes it unreadable to the blind eye.
+// @param bool $noSplash. Enables instant redirections without a splash screen.
+function anonymizeURL($url, $encode = false, $noSplash = false)
+{
+
+    if ($encode) {
+        $url = rtrim(base64_encode($url), '=');
+    }
+
+    return 'https://' . ($noSplash ? 'nosplash.' : '') . 'open-dereferrer.com/' . urlencode($url);
+
+}
+
+echo 'Your anonymized URL is: ' . anonymizeURL('https://www.google.com/', true, false);
+// Outputs: Your anonymized URL is: https://open-dereferrer.com/aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8

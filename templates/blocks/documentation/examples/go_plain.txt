@@ -1,0 +1,30 @@
+package main
+
+import (
+	"encoding/base64"
+	"fmt"
+	"net/url"
+	"strings"
+)
+
+// @param string url. The URL to anonymize.
+// @param bool encode. Base64 encodes the URL and makes it unreadable to the blind eye.
+// @param bool noSplash. Enables instant redirections without a splash screen.
+func AnonymizeURL(theURL string, encode, noSplash bool) string {
+
+	if encode {
+		theURL = strings.TrimRight(base64.StdEncoding.EncodeToString([]byte(theURL)), "=")
+	}
+
+	if noSplash {
+		return "https://nosplash.open-dereferrer.com/" + url.QueryEscape(theURL)
+	}
+
+	return "https://open-dereferrer.com/" + url.QueryEscape(theURL)
+
+}
+
+func main() {
+	fmt.Println("Your anonymized URL is: " + AnonymizeURL("https://www.google.com/", true, false))
+	// Outputs: Your anonymized URL is: https://open-dereferrer.com/aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8
+}

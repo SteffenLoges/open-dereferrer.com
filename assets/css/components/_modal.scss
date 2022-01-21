@@ -1,0 +1,69 @@
+#modal-url-submitted {
+  .modal {
+    animation: slideIn 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .modal-backdrop {
+    background: rgba(75, 75, 75, 0.8) !important;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .modal-header,
+  .modal-body {
+    background: $gray-300;
+  }
+
+  // .modal-header {
+  //   background: $gray-300 !important;
+  // }
+
+  .modal-body {
+    padding: 0;
+
+    .modal-other-options {
+      background: $cyan-700;
+    }
+  }
+
+  #modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    background: none;
+    opacity: 0.5;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0.7rem 1.3rem;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

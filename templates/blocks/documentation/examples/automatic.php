@@ -1,0 +1,11 @@
+<pre class="hljs"
+  style="display: block; overflow-x: auto; padding: 0.5em; background: rgb(35, 36, 31); color: rgb(248, 248, 242);"><span class="xml"><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">script</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">defer</span> <span class="hljs-attr" style="color: rgb(249, 38, 114);">src</span>=<span class="hljs-string" style="color: rgb(230, 219, 116);">"https://api.open-dereferrer.com/v1/min"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">script</span>&gt;</span>
+<span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;<span class="hljs-name" style="color: rgb(249, 38, 114);">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-built_in" style="color: rgb(230, 219, 116);">document</span>.addEventListener(<span class="hljs-string" style="color: rgb(230, 219, 116);">"DOMContentLoaded"</span>, <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(249, 38, 114);">function</span> (<span class="hljs-params" style="color: rgb(248, 248, 242);"></span>) </span>{
+    OpenDereferrer.init({
+      ignoreHosts: [<span class="hljs-string" style="color: rgb(230, 219, 116);">'google.com'</span>, <span class="hljs-string" style="color: rgb(230, 219, 116);">'www.google.com'</span>], <span class="hljs-comment" style="color: rgb(117, 113, 94);">// optional, enter a list of hostnames that should be ignored. default: []</span>
+      noSplash: <span class="hljs-literal" style="color: rgb(174, 129, 255);">false</span>, <span class="hljs-comment" style="color: rgb(117, 113, 94);">// optional, set to true to enable instant redirections without a splash screen. default: false</span>
+      encodeURL: <span class="hljs-literal" style="color: rgb(174, 129, 255);">false</span>, <span class="hljs-comment" style="color: rgb(117, 113, 94);">// optional, base64 encodes the URL and makes it unreadable to the blind eye. default: false</span>
+    });
+  });
+</span><span class="hljs-tag" style="color: rgb(248, 248, 242);">&lt;/<span class="hljs-name" style="color: rgb(249, 38, 114);">script</span>&gt;</span></span></pre>

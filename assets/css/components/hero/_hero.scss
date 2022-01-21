@@ -1,0 +1,38 @@
+.hero {
+  background-color: $blue-700;
+  position: relative;
+  height: 40em;
+  overflow: hidden;
+
+  .content {
+    position: relative;
+  }
+
+  .cube {
+    position: absolute;
+    top: var(--top);
+    left: var(--left);
+    width: 10px;
+    height: 10px;
+    border: solid 1px darken($blue-700, 8%);
+    transform-origin: top left;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    animation: cube 10s ease-in forwards infinite;
+    animation-delay: var(--delay);
+
+    &:nth-child(2n) {
+      border-color: lighten($blue-700, 10%);
+    }
+  }
+}
+
+@keyframes cube {
+  from {
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+    opacity: 1;
+  }
+  to {
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
