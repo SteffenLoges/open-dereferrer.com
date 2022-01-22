@@ -13,7 +13,10 @@ import (
 func AnonymizeURL(theURL string, encode, noSplash bool) string {
 
 	if encode {
-		theURL = strings.TrimRight(base64.StdEncoding.EncodeToString([]byte(theURL)), "=")
+		theURL = base64.StdEncoding.EncodeToString([]byte(theURL))
+		theURL = strings.Replace(theURL, "+", "-", -1)
+		theURL = strings.Replace(theURL, "/", "_", -1)
+		theURL = strings.TrimRight(theURL, "=")
 	}
 
 	if noSplash {

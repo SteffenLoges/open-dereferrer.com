@@ -5,7 +5,7 @@ function anonymizeURL($url, $encode = false, $noSplash = false)
 {
 
     if ($encode) {
-        $url = rtrim(base64_encode($url), '=');
+        $url = rtrim(strtr(base64_encode($url), '+/', '-_'), '=');
     }
 
     return 'https://' . ($noSplash ? 'nosplash.' : '') . 'open-dereferrer.com/' . urlencode($url);

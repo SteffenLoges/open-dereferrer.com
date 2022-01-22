@@ -11,7 +11,7 @@ if (!defined('ROOT_DIR')) {
 </span>{
 
     <span class="hljs-keyword" style="color: rgb(249, 38, 114);">if</span> ($encode) {
-        $url = rtrim(base64_encode($url), <span class="hljs-string" style="color: rgb(230, 219, 116);">'='</span>);
+        $url = rtrim(strtr(base64_encode($url), <span class="hljs-string" style="color: rgb(230, 219, 116);">'+/'</span>, <span class="hljs-string" style="color: rgb(230, 219, 116);">'-_'</span>), <span class="hljs-string" style="color: rgb(230, 219, 116);">'='</span>);
     }
 
     <span class="hljs-keyword" style="color: rgb(249, 38, 114);">return</span> <span class="hljs-string" style="color: rgb(230, 219, 116);">'https://'</span> . ($noSplash ? <span class="hljs-string" style="color: rgb(230, 219, 116);">'nosplash.'</span> : <span class="hljs-string" style="color: rgb(230, 219, 116);">''</span>) . <span class="hljs-string" style="color: rgb(230, 219, 116);">'open-dereferrer.com/'</span> . urlencode($url);

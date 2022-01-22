@@ -4,7 +4,7 @@
 function anonymizeURL(url, encode, noSplash) {
 
   if (encode) {
-    url = btoa(url).replace(/=+$/, '');
+    url = btoa(url).replace('+', '-').replace('/', '_').replace(/=+$/, '');
   }
 
   return 'https://' + (noSplash ? 'nosplash.' : '') + 'open-dereferrer.com/' + encodeURIComponent(url);

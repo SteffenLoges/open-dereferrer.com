@@ -19,7 +19,10 @@ if (!defined('ROOT_DIR')) {
 <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(249, 38, 114);">func</span> <span class="hljs-title" style="color: rgb(166, 226, 46);">AnonymizeURL</span><span class="hljs-params" style="color: rgb(248, 248, 242);">(theURL <span class="hljs-keyword" style="color: rgb(249, 38, 114);">string</span>, encode, noSplash <span class="hljs-keyword" style="color: rgb(249, 38, 114);">bool</span>)</span> <span class="hljs-title" style="color: rgb(166, 226, 46);">string</span></span> {
 
 	<span class="hljs-keyword" style="color: rgb(249, 38, 114);">if</span> encode {
-		theURL = strings.TrimRight(base64.StdEncoding.EncodeToString([]<span class="hljs-keyword" style="color: rgb(249, 38, 114);">byte</span>(theURL)), <span class="hljs-string" style="color: rgb(230, 219, 116);">"="</span>)
+		theURL = base64.StdEncoding.EncodeToString([]<span class="hljs-keyword" style="color: rgb(249, 38, 114);">byte</span>(theURL))
+		theURL = strings.Replace(theURL, <span class="hljs-string" style="color: rgb(230, 219, 116);">"+"</span>, <span class="hljs-string" style="color: rgb(230, 219, 116);">"-"</span>, <span class="hljs-number" style="color: rgb(174, 129, 255);">-1</span>)
+		theURL = strings.Replace(theURL, <span class="hljs-string" style="color: rgb(230, 219, 116);">"/"</span>, <span class="hljs-string" style="color: rgb(230, 219, 116);">"_"</span>, <span class="hljs-number" style="color: rgb(174, 129, 255);">-1</span>)
+		theURL = strings.TrimRight(theURL, <span class="hljs-string" style="color: rgb(230, 219, 116);">"="</span>)
 	}
 
 	<span class="hljs-keyword" style="color: rgb(249, 38, 114);">if</span> noSplash {

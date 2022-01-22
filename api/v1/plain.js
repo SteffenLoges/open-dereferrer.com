@@ -30,7 +30,7 @@ const OpenDereferrer = {
   anonymizeURL(url) {
 
     if (this.options.encodeURL) {
-      url = btoa(url).replace(/=+$/, '');
+      url = btoa(url).replace('+', '-').replace('/', '_').replace(/=+$/, '');
     }
 
     return 'https://' + (this.options.noSplash ? 'nosplash.' : '') + 'open-dereferrer.com/' + encodeURIComponent(url);
