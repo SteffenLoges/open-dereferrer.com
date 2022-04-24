@@ -15,33 +15,16 @@ if (!defined('ROOT_DIR')) {
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="/assets/favicon/site.webmanifest">
-  <?php if (isset($redirectTo)) {?>
-  <script>
-  var redirectURL = '<?php echo htmlspecialchars($redirectTo); ?>';
-  <?php /* Try to append text-anchor when using unencoded urls */?>
-  if (window.location.hash) {
-    redirectURL += window.location.hash;
-  }
-
-  setTimeout(function() {
-    window.location.href = redirectURL;
-  }, <?php echo OpenDereferrer\Config::i()->get('REDIRECT_DELAY'); ?> * 1e3);
-  </script>
-  <noscript>
-    <meta http-equiv="refresh"
-      content="<?php echo OpenDereferrer\Config::i()->get('REDIRECT_DELAY'); ?>; url=<?php echo htmlspecialchars($redirectTo); ?>" />
-  </noscript>
-  <?php }?>
   <title><?php echo OpenDereferrer\Config::i()->get('META_TITLE'); ?></title>
   <link rel="canonical" href="<?php echo OpenDereferrer\Config::i()->get('SITE_URL'); ?>">
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link href="<?php echo OpenDereferrer\Config::i()->get('MAIN_CSS_FILE'); ?>" rel="stylesheet" />
   <script defer src="<?php echo OpenDereferrer\Config::i()->get('MAIN_JS_FILE'); ?>"></script>
-  <?php
-// Global site tag (gtag.js) - Google Analytics
-$gTag = OpenDereferrer\Config::i()->get('GOOGLE_ANALYTICS_TRACKING_ID');
-if ($gTag != '') {
-    ?>
+  <?php 
+  // Global site tag (gtag.js) - Google Analytics
+  $gTag = OpenDereferrer\Config::i()->get('GOOGLE_ANALYTICS_TRACKING_ID');
+  if ($gTag != '') {
+  ?>
   <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $gTag; ?>"></script>
   <script>
   window.dataLayer = window.dataLayer || [];

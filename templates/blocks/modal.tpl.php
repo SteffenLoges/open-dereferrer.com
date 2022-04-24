@@ -75,7 +75,7 @@ $otherOptions = [
               Are you a developer and want to integrate
               <?php echo OpenDereferrer\Config::i()->get('BRAND_NAME'); ?> into your website?
               Check out the <a class="text-white"
-                href="<?php echo OpenDereferrer\Config::i()->get('SITE_URL'); ?>/?refresh#documentation">documentation</a>
+                href="<?php echo OpenDereferrer\Config::i()->get('SITE_URL'); ?>/?#documentation">documentation</a>
               for more information!
             </p>
           </section>

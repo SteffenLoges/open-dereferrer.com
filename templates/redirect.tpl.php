@@ -19,18 +19,6 @@ if (!defined('ROOT_DIR')) {
       <h6 class="card-subtitle text-muted">
         If you don't want to wait, <a id="redirect-btn" href="<?php echo htmlspecialchars($redirectTo); ?>">click
           here</a>.
-        <script>
-        var redirectURL = '<?php echo htmlspecialchars($redirectTo); ?>';
-        <?php /* Try to append text-anchor when using unencoded urls */?>
-        if (window.location.hash) {
-          redirectURL += window.location.hash;
-        }
-
-        document.querySelector('#redirect-btn').addEventListener('click', function(e) {
-          e.preventDefault();
-          window.location.href = redirectURL;
-        });
-        </script>
       </h6>
     </div>
     <div class="card-footer text-muted">
@@ -40,6 +28,29 @@ if (!defined('ROOT_DIR')) {
     </div>
     </div>
   </main>
+
+  <noscript>
+    <meta http-equiv="refresh"
+      content="<?php echo OpenDereferrer\Config::i()->get('REDIRECT_DELAY'); ?>; url=<?php echo htmlspecialchars($redirectTo); ?>" />
+  </noscript>
+  <script>
+  <?php /* Try to append text-anchor when using unencoded urls */?>
+  var redirectBtn = document.querySelector('#redirect-btn');
+  var redirectLocation = redirectBtn.getAttribute('href');
+
+  if (window.location.hash) {
+    redirectLocation += window.location.hash;
+  }
+
+  redirectBtn.setAttribute('href', redirectLocation);
+
+  <?php /* redirect with javascript, if possible */ ?>
+
+  setTimeout(function() {
+    window.location.href = redirectLocation;
+  }, <?php echo OpenDereferrer\Config::i()->get('REDIRECT_DELAY'); ?> * 1e3);
+  </script>
+
 </body>
 
 </html>

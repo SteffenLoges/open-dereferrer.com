@@ -2,7 +2,8 @@
 
 - dereferrer and url obfuscator
 - supports base64-encoded URLs
-- with option to skip the splash screen
+- works without javascript
+- option to skip the splash screen 
 
 ### example
 [open-dereferrer.com](https://open-dereferrer.com "open-dereferrer.com")

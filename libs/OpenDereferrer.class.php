@@ -27,7 +27,7 @@ class OpenDereferrer
             }
 
             if (Config::i()->get('NOSPLASH_SUBDOMAIN') && str_starts_with($_SERVER['HTTP_HOST'], Config::i()->get('NOSPLASH_SUBDOMAIN') . '.')) {
-                header('Location: ' . htmlspecialchars($url->getFullURL()));
+                header('Location: ' . $url->getFullURL());
                 exit;
             }
 
