@@ -10,7 +10,7 @@
 
 ### nginx config
 
-```cpp
+```nginx
 # redirect http to https
 server {
   listen 80;
